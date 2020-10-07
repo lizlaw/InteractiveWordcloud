@@ -1,14 +1,6 @@
 # InteractiveWordcloud
 A free open, interactive word cloud functions (linking R with Google Forms) useful for quick audience participation experiences.
 
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
 InteractiveWordcloud is a small R package that delivers a free open, interactive word cloud (links R with Google Forms) useful for quick audience participation experiences.
 
 It defines the functions `generate_wordcloud()` and `interactive_wordcloud()`; these are wrappers around downloading the data using `googledrive::drive_download()`, processing using the `tm` package, and plotting a wordcloud using `wordcloud2::wordcloud()`.
