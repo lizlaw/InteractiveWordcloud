@@ -62,7 +62,7 @@ First, the function downloads the google sheet from your google drive. This uses
 
 Second, it uses the package `tm` (a text mining package) to prepare and format the data (coming in as a .csv file of responses) into a word frequency table. Specifically, in cleaning the data, we 1) convert all to lowercase, 2) remove numbers, 3) remove punctuation, 4) remove 'stopwords' (i.e. commonly used words that we should ignore, such as “the”, “a”, etc.), and 5) remove excess whitespace. I've only allowed easy access to change the stopword options (see function helpfile). Feel free to copy and modify the function if you want other options! 
 
-Third, it plots the frequency table as a wordcloud, using the package `wordcloud2`. Users are refered to this package for plotting options, which can be passed into `generate_wordcloud()`.
+Third, it plots the frequency table as a wordcloud, using the package `wordcloud2`. Users are refered to this package for plotting options, which can be passed into `generate_wordcloud()`. Unfortunately there doesn't seem to be a way yet (as of October 2020) for setting a seed so wordcloud2 randomisation is identical each time (see https://github.com/Lchiffon/wordcloud2/issues). 
 
 Wishing you a fun, interactive time! 
 
