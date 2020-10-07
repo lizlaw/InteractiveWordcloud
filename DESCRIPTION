@@ -1,0 +1,27 @@
+Package: InteractiveWordcloud
+Type: Package
+Title: Interactive Wordcloud
+Version: 0.1.0
+Author: Elizabeth Law
+Maintainer: Elizabeth Law <woringconservation@gmail.com>
+Description: An R script that delivers an open, interactive word cloud (links R with Google Forms)
+    Participants can input to the Google form, when they submit their answer it gets entered into 
+    the linked Google sheet. Then, this script automates download of the Google sheet, cleans and 
+    prepares the data, and plots to a wordcloud. This can be run iteratively to provide an 
+    interactive audience participation experience.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    magrittr
+Imports: 
+    googledrive,
+    readr,
+    dplyr,
+    tm,
+    wordcloud2
+RoxygenNote: 7.0.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
