@@ -35,7 +35,7 @@ To run this script, you will need to:
 # Installing
 Hosted on github, this package can be installed by:
 ```{r installing, echo = TRUE, eval = FALSE}
-devtools::install_github("lizlaw", "InteractiveWordcloud")
+devtools::install_github("lizlaw/InteractiveWordcloud")
 ```
 
 # Setup 
