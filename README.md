@@ -39,7 +39,7 @@ This call will show you a list of the files in your google drive, for which the 
 googledrive::drive_find(pattern = "Interactive wordcloud")
 ```
 
-Now we are connected, we can generate a single wordcloud. This can be used, for example, to test or after all entries from the audience have been submitted.
+Now we are connected, we can generate a single wordcloud. This can be used, for example, to test or after all entries from the audience have been submitted. Note, This will create (or overwrite) the file named in .file_path, so be sure to name this appropriately. Also, this file is currently not deleted after the plot is created, you will have to do this manually. 
 ```{r generate wordcloud, echo = TRUE, eval = FALSE}
 generate_wordcloud(.file_name = "Interactive wordcloud (Responses)",
                    .file_path = "temp_wordcloud_responses.csv",
