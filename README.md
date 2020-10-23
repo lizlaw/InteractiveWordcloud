@@ -39,7 +39,7 @@ This call will show you a list of the files in your google drive, for which the 
 googledrive::drive_find(pattern = "Interactive wordcloud")
 ```
 
-Now we are connected, we can generate a single wordcloud. This can be used, for example, to test or after all entries from the audience have been submitted.
+Now we are connected, we can generate a single wordcloud. This can be used, for example, to test or after all entries from the audience have been submitted. Note, This will create (or overwrite) the file named in .file_path, so be sure to name this appropriately. Also, this file is currently not deleted after the plot is created, you will have to do this manually. 
 ```{r generate wordcloud, echo = TRUE, eval = FALSE}
 generate_wordcloud(.file_name = "Interactive wordcloud (Responses)",
                    .file_path = "temp_wordcloud_responses.csv",
@@ -62,7 +62,7 @@ First, the function downloads the google sheet from your google drive. This uses
 
 Second, it uses the package `tm` (a text mining package) to prepare and format the data (coming in as a .csv file of responses) into a word frequency table. Specifically, in cleaning the data, we 1) convert all to lowercase, 2) remove numbers, 3) remove punctuation, 4) remove 'stopwords' (i.e. commonly used words that we should ignore, such as “the”, “a”, etc.), and 5) remove excess whitespace. I've only allowed easy access to change the stopword options (see function helpfile). Feel free to copy and modify the function if you want other options! 
 
-Third, it plots the frequency table as a wordcloud, using the package `wordcloud2`. Users are refered to this package for plotting options, which can be passed into `generate_wordcloud()`.
+Third, it plots the frequency table as a wordcloud, using the package `wordcloud2`. Users are refered to this package for plotting options, which can be passed into `generate_wordcloud()`. Unfortunately there doesn't seem to be a way yet (as of October 2020) for setting a seed so wordcloud2 randomisation is identical each time (see https://github.com/Lchiffon/wordcloud2/issues). 
 
 Wishing you a fun, interactive time! 
 
