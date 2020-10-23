@@ -6,7 +6,7 @@
 #' @param .file_path A chr string of the file location the google sheet will be downloaded to locally. (Needs ".csv")
 #' @param .column_name A chr string denoting the question/column name of the responses to be integrated into the wordcloud.
 #' @param .stopwords Options for cleaning common words. For further options, see ?tm::stopwords
-#' @param .removewords Null, or a character string vector containing additional words to remove
+#' @param .removewords NULL, or a character string vector containing additional words to remove
 #' @param .return A chr string, either "wordcloud" for plotting wordcloud output, or "data" for outputting the frequency table.
 #' @param ... Further arguments passed to wordcloud2::wordcould2()
 #'
