@@ -45,7 +45,7 @@ library(InteractiveWordcloud)
 library(googledrive)  
 ```
 
-Initiate link with googledrive. 
+Initiate link with googledrive. (see https://googledrive.tidyverse.org/ for further details)
 If this is the first time you use googledrive, this call will open a popup window asking you to give access to your Google Drive. Else you will need to select the drive you wish to connect with, as prompted.
 This call will show you a list of the files in your google drive, for which the name contains "Interactive wordcloud".
 ```{r setup link to googledrive, echo = TRUE, eval = FALSE}
