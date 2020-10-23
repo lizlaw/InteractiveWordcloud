@@ -9,6 +9,7 @@ generate_wordcloud(
   .file_path = "temp_wordcloud_responses.csv",
   .column_name = "What is your favourite colour?",
   .stopwords = "english",
+  .removewords = NULL,
   .return = "wordcloud",
   ...
 )
@@ -21,6 +22,8 @@ generate_wordcloud(
 \item{.column_name}{A chr string denoting the question/column name of the responses to be integrated into the wordcloud.}
 
 \item{.stopwords}{Options for cleaning common words. For further options, see ?tm::stopwords}
+
+\item{.removewords}{Null, or a character string vector containing additional words to remove}
 
 \item{.return}{A chr string, either "wordcloud" for plotting wordcloud output, or "data" for outputting the frequency table.}
 

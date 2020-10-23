@@ -6,6 +6,7 @@
 #' @param .file_path A chr string of the file location the google sheet will be downloaded to locally. (Needs ".csv")
 #' @param .column_name A chr string denoting the question/column name of the responses to be integrated into the wordcloud.
 #' @param .stopwords Options for cleaning common words. For further options, see ?tm::stopwords
+#' @param .removewords Null, or a character string vector containing additional words to remove
 #' @param .return A chr string, either "wordcloud" for plotting wordcloud output, or "data" for outputting the frequency table.
 #' @param ... Further arguments passed to wordcloud2::wordcould2()
 #'
@@ -22,6 +23,7 @@ generate_wordcloud <- function(.file_name = "Interactive wordcloud (Responses)",
                                .file_path = "temp_wordcloud_responses.csv",
                                .column_name = "What is your favourite colour?",
                                .stopwords = "english",   # for options for cleaning common words see ?stopwords
+                               .removewords = NULL,
                                .return = "wordcloud",    # alternatively, the frequency "data"
                                ...){                     # further arguments passed to wordcloud2()
 
@@ -47,6 +49,11 @@ generate_wordcloud <- function(.file_name = "Interactive wordcloud (Responses)",
     tm::tm_map(tm::content_transformer(tm::removePunctuation)) %>%
     tm::tm_map(function(x) tm::removeWords(x, tm::stopwords(.stopwords))) %>%
     tm::tm_map(tm::content_transformer(tm::stripWhitespace))
+
+  if(!is.null(.removewords)) {
+    wc_data <- wc_data %>%
+      tm::tm_map(function(x) tm::removeWords(x, .removewords))
+  }
 
   # convert to frequency matrix
   wc_m <- tm::TermDocumentMatrix(wc_data) %>%

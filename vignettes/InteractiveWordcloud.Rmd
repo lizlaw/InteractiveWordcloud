@@ -69,6 +69,32 @@ interactive_wordcloud(.minutes = 1,
                   .column_name = "What is your favourite colour?")
 ```
 
+If you want to clean up the data prior to saving a version (or to pre-empt some not-so-nice words), you can add an additional `.removewords` list. For example, if I need to clean up some names that people accidentially added:
+
+```{r generate wordcloud, echo = TRUE, eval = FALSE}
+generate_wordcloud(.file_name = "Interactive wordcloud (Responses)",
+                   .file_path = "temp_wordcloud_responses.csv",
+                   .column_name = "What is your favourite colour?",
+                   .removewords = c("rundle", "victoria", "joffre"))
+```
+
+Finally, to save into a file we could either export it from the RStudio viewer pane, or the current solution recommended by wordcloud2 (https://github.com/Lchiffon/wordcloud2/issues/8) is to use htmlwidgets and webshot:
+
+```{r save wordcloud, echo = TRUE, eval = FALSE}
+
+# this will need to be run once
+install.packages("webshot")
+webshot::install_phantomjs()
+
+wc <-  generate_wordcloud(.file_name = "Interactive wordcloud (Responses)",
+                   .file_path = "temp_wordcloud_responses.csv",
+                   .column_name = "What is your favourite colour?",
+                   .removewords = c("rundle", "victoria", "joffre"))
+htmlwidgets::saveWidget(wc, "wc.html", selfcontained = F)
+webshot::webshot("wc.html", "wc.png", vwidth = 992, vheight = 744, zoom = 2, delay = 10)
+```
+
+
 # What does the generate_wordcloud function do, and what options do I have? 
 
 First, the function downloads the google sheet from your google drive. This uses the package `googledrive`.
